@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@mui/material'
+import { Container, Tooltip } from '@mui/material'
 import { Line } from 'react-chartjs-2'
 
 const data = {
@@ -48,9 +48,11 @@ const options = {
 
 const Chart = () => {
     return (
-        <Container>
-            <Line data={data} options={options} />
-        </Container>
+        <Tooltip title='Price and Volume Data of Opensea Trading Activity' arrow>
+            <Container>
+                    <Line data={data} options={options} />
+            </Container>
+        </Tooltip>
     )
 }
 

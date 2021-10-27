@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Typography } from '@mui/material'
+import { Container, Typography, Paper } from '@mui/material'
 import { Box } from '@mui/system'
 
 import Chart from '../components/Chart'
