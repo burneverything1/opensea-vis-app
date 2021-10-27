@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { CssBaseline } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { indigo, blue } from '@mui/material/colors'
 
-function App() {
+import Header from './components/Header'
+
+import Collection from './pages/Collection'
+import Home from './pages/Home'
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: indigo[500],
+    },
+    secondary: {
+      main: indigo[100],
+    },
+    contrastThreshold: 3,
+    background: {
+      default: '#1a237e'
+    }
+  },
+  typography: {
+    allVariants: {
+      color: 'secondary'
+    }
+  }
+})
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <Header/>
+      <Switch>
+        <Route path='/collection'>
+          <Collection />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+    </ThemeProvider>
+  )
 }
 
 export default App;
