@@ -2,7 +2,8 @@ import React from 'react'
 import { Container, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 
-import Chart from '../components/Header'
+import Chart from '../components/Chart'
+import TopCollection from '../components/TopCollection'
 
 const Home = () => {
     return (
@@ -12,8 +13,9 @@ const Home = () => {
                     Opensea Visualizer
                 </Typography>
             </Box>
-            <Box>
-
+            <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
+                <Chart/>
+                <TopCollection/>
             </Box>
         </Container>
     )
