@@ -3,6 +3,7 @@ import { Container, Typography, Button, Popover } from '@mui/material'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { Box } from '@mui/system'
 import TwitterIcon from '@mui/icons-material/Twitter'
+import WebIcon from '@mui/icons-material/Web'
 
 import Chart from '../components/Chart'
 
@@ -12,14 +13,14 @@ const Collection = () => {
 
     return(
         <Container>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px'}}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px'}}>
+                <Button sx={{visibility: 'hidden'}}>
+                </Button>
                 <Typography variant='h2' color='secondary'>
                     Entropes
                 </Typography>
-            </Box>
-            <Box>
                 <Button variant="contained" onClick={e => setLinkOpen(e.currentTarget)}>
-                Open Popover
+                Links
                 </Button>
                 <Popover
                 open={linkOpen}
@@ -31,12 +32,20 @@ const Collection = () => {
                 }}
                 >
                     <List>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
                                     <TwitterIcon />
                                 </ListItemIcon>
                                 <ListItemText primary='Twitter' />
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <WebIcon />
+                                </ListItemIcon>
+                                <ListItemText primary='OpenSea' />
                             </ListItemButton>
                         </ListItem>
                     </List>
