@@ -35,7 +35,7 @@ const App = () => {
       <CssBaseline/>
       <Header/>
       <Switch>
-        <Route path='/collection'>
+        <Route path='/collection/:add' children={<Collection />}>
           <Collection />
         </Route>
         <Route path='/'>
