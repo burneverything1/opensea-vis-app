@@ -14,17 +14,21 @@ import contractService from '../services/contract'
 
 const Collection = () => {
     const [linkOpen, setLinkOpen] = useState(null)
-    const [collectionData, setCollectionData] = useState(null)
     const [collectionName, setCollectionName] = useState('')
+    const [colAddress, setColAddress] = useState('')
+    const [colDiscordUrl, setColDiscordUrl] = useState('')
 
     const { add } = useParams()
 
+    // get data about collection from url param and disperse to state variables
     useEffect(() => {
         contractService
             .getContractData(add)
             .then(contractData => {
-                setCollectionData(contractData)
+                console.log(contractData);
                 setCollectionName(contractData.collection.name)
+                setColAddress(contractData.address)
+                setColDiscordUrl(contractData.collection.discord_url)
             })
     }, [])
 
@@ -69,7 +73,10 @@ const Collection = () => {
                 </Popover>
             </Box>
             <Box>
-                <CollectionDisplay collectionData={collectionData}/>
+                <CollectionDisplay
+                    collection_address={colAddress}
+                    col_discord_url={colDiscordUrl}
+                />
             </Box>
             <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
                 <Chart/>

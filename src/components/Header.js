@@ -9,6 +9,7 @@ const Header = () => {
 
     let history = useHistory()
 
+    // handlers for search input changes
     const handleSearchChange = (event) => {
         setSearchCol(event.target.value)
     }
