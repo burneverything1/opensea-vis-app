@@ -1,56 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Typography, Button, Popover, TextField } from '@mui/material'
+import { Container, Typography, Button, Popover } from '@mui/material'
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { useParams } from 'react-router-dom'
 import { Box } from '@mui/system'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import WebIcon from '@mui/icons-material/Web'
 
 import Chart from '../components/Chart'
+import CollectionDisplay from '../components/CollectionDisplay'
 
 import contractService from '../services/contract'
 
 
 const Collection = () => {
     const [linkOpen, setLinkOpen] = useState(null)
-    const [searchCol, setSearchCol] = useState(null)
-    const [collectionDets, setCollectionDets] = useState(null)
+    const [collectionData, setCollectionData] = useState(null)
+    const [collectionName, setCollectionName] = useState('')
 
-    // get collection
-    /*useEffect(() => {
+    const { add } = useParams()
+
+    useEffect(() => {
         contractService
-            .sendContractMQ('0xF8C08433DD41eAeE2e424C9E91467aB27772d9ec')
+            .getContractData(add)
             .then(contractData => {
-                setCollectionDets(contractData)
-                console.log(contractData);
+                setCollectionData(contractData)
+                setCollectionName(contractData.collection.name)
             })
-    }, [])*/
-
-    const handleSearchChange = (event) => {
-        setSearchCol(event.target.value)
-    }
-
-    const submitSearch = (event) => {
-        contractService('0xF8C08433DD41eAeE2e424C9E91467aB27772d9ec')
-            .then(contractData => {
-                setCollectionDets(contractData)
-                console.log(contractData);
-            })
-    }
+    }, [])
 
     return(
         <Container>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px'}}>
                 <Button sx={{visibility: 'hidden'}}>
                 </Button>
-                <TextField id="outlined" label="Enter Collection" variant="outlined"
-                    size='small'
-                    sx={{ width: '80%'}}
-                    value={searchCol}
-                    onChange={handleSearchChange}
-                    onKeyPress={submitSearch}
-                />
                 <Typography variant='h2' color='secondary'>
-                    Entropes
+                    {collectionName}
                 </Typography>
                 <Button variant="contained" onClick={e => setLinkOpen(e.currentTarget)}>
                 Links
@@ -83,6 +67,9 @@ const Collection = () => {
                         </ListItem>
                     </List>
                 </Popover>
+            </Box>
+            <Box>
+                <CollectionDisplay collectionData={collectionData}/>
             </Box>
             <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
                 <Chart/>

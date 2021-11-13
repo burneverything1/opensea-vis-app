@@ -14,9 +14,8 @@ const Header = () => {
     }
 
     const submitSearch = (event) => {
-        if (event.key === 'Enter') {
-            console.log(searchCol);
-            history.push(`/collection/:${searchCol}`)
+        if (event.key === 'Enter' && searchCol.substring(0, 2) === '0x')  {
+            history.push(`/collection/${searchCol}`)
             setSearchCol('')
         }
     }
