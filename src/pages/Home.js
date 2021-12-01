@@ -14,7 +14,6 @@ const Home = () => {
                 </Typography>
             </Box>
             <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-                <Chart/>
                 <TopCollection/>
             </Box>
         </Container>

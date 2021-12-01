@@ -29,7 +29,7 @@ const TopCollection = () => {
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow>
+                        <TableRow key={row.name}>
                             <TableCell component='th'>{row.name}</TableCell>
                             <TableCell>{row.rank}</TableCell>
                             <TableCell>{row.price}</TableCell>
