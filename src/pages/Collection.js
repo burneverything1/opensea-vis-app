@@ -6,7 +6,6 @@ import { Box } from '@mui/system'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import WebIcon from '@mui/icons-material/Web'
 
-import Chart from '../components/Chart'
 import CollectionDisplay from '../components/CollectionDisplay'
 
 import contractService from '../services/contract'
@@ -30,7 +29,7 @@ const Collection = () => {
                 setColAddress(contractData.address)
                 setColDiscordUrl(contractData.collection.discord_url)
             })
-    }, [])
+    }, [add])
 
     return(
         <Container>
@@ -77,9 +76,6 @@ const Collection = () => {
                     collection_address={colAddress}
                     col_discord_url={colDiscordUrl}
                 />
-            </Box>
-            <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-                <Chart/>
             </Box>
         </Container>
     )

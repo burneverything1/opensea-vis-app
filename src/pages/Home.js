@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Typography, Paper } from '@mui/material'
 import { Box } from '@mui/system'
 
@@ -6,6 +6,7 @@ import Chart from '../components/Chart'
 import TopCollection from '../components/TopCollection'
 
 const Home = () => {
+
     return (
         <Container>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px'}}>
@@ -14,7 +15,6 @@ const Home = () => {
                 </Typography>
             </Box>
             <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-                <Chart/>
                 <TopCollection/>
             </Box>
         </Container>
