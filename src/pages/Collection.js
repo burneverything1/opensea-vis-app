@@ -14,8 +14,7 @@ import contractService from '../services/contract'
 const Collection = () => {
     const [linkOpen, setLinkOpen] = useState(null)
     const [collectionName, setCollectionName] = useState('')
-    const [colAddress, setColAddress] = useState('')
-    const [colDiscordUrl, setColDiscordUrl] = useState('')
+    const [contractData, setContractData] = useState('')
 
     const { add } = useParams()
 
@@ -26,8 +25,7 @@ const Collection = () => {
             .then(contractData => {
                 console.log(contractData);
                 setCollectionName(contractData.collection.name)
-                setColAddress(contractData.address)
-                setColDiscordUrl(contractData.collection.discord_url)
+                setContractData(contractData)
             })
     }, [add])
 
@@ -73,8 +71,7 @@ const Collection = () => {
             </Box>
             <Box>
                 <CollectionDisplay
-                    collection_address={colAddress}
-                    col_discord_url={colDiscordUrl}
+                    contract_data={contractData}
                 />
             </Box>
         </Container>
