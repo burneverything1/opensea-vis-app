@@ -36,7 +36,7 @@ const TopCollection = () => {
     }
 
     return (
-        <TableContainer>
+        <TableContainer sx={{ maxHeight: 600 }}>
             <Table>
                 <TableHead>
                     <TableRow>

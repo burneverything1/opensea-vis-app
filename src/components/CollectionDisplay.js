@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 
-const CollectionDisplay = ({ collection_address, col_discord_url }) => {
-    const [colAddress, setColAddress] = useState(collection_address)
-    const [colDiscordUrl, setColDiscordUrl] = useState(col_discord_url)
-
-    
-    // update row data after props are passed from api call
-    useEffect(() => {
-        setColAddress(collection_address)
-    }, [collection_address])
+const CollectionDisplay = ({ contract_data }) => {
+    const [contractData, setContractData] = useState(null)
 
     useEffect(() => {
-        setColDiscordUrl(col_discord_url)
-    }, [col_discord_url])
+        setContractData(contract_data)
+    }, [contract_data])
 
     return (
         <Table>
@@ -26,11 +19,11 @@ const CollectionDisplay = ({ collection_address, col_discord_url }) => {
             <TableBody>
                 <TableRow key='address'>
                     <TableCell>Address</TableCell>
-                    <TableCell align='right'>{colAddress}</TableCell>
+                    <TableCell align='right'>{contractData ? contractData.address : null}</TableCell>
                 </TableRow>
                 <TableRow key='discord'>
                     <TableCell>Discord</TableCell>
-                    <TableCell align='right'>{colDiscordUrl}</TableCell>
+                    <TableCell align='right'>{contractData ? contractData.collection.discord_url : null}</TableCell>
                 </TableRow>
             </TableBody>
         </Table>

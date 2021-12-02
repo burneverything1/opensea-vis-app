@@ -36,7 +36,7 @@ const Header = () => {
                     <IconButton onClick={handleHomeClick}>
                         <HomeIcon fontSize='large' color='secondary'/>
                     </IconButton>
-                    <TextField id="outlined" label="Search for Collection" variant="outlined"
+                    <TextField id="outlined" label="Search for Collection Address" variant="outlined"
                         size='small'
                         sx={{ width: '80%'}}
                         value={searchCol}

@@ -16,7 +16,16 @@ const theme = createTheme({
     },
     typography: {
       allVariants: {
-        color: 'secondary'
+        color: 'white'
+      }
+    },
+    components: {
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            color: 'white'
+          }
+        }
       }
     }
   })
