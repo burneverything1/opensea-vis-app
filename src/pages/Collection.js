@@ -18,7 +18,6 @@ const Collection = () => {
 
     const { add } = useParams()
 
-    // get data about collection from url param and disperse to state variables
     useEffect(() => {
         contractService
             .getContractData(add)
@@ -35,7 +34,7 @@ const Collection = () => {
                 <Button sx={{visibility: 'hidden'}}>
                 </Button>
                 <Typography variant='h2' color='secondary'>
-                    {collectionName}
+                    {collectionName} Details
                 </Typography>
                 <Button variant="contained" onClick={e => setLinkOpen(e.currentTarget)}>
                 Links
@@ -49,7 +48,7 @@ const Collection = () => {
                     horizontal: 'left',
                 }}
                 >
-                    <List>
+                    <List sx={{ backgroundColor: 'primary' }}>
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>

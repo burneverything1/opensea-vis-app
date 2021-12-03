@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { AppBar, IconButton, TextField, Toolbar, Box } from '@mui/material'
+import { AppBar, IconButton, TextField, Toolbar, Box, Tooltip } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home'
 
@@ -9,7 +9,6 @@ const Header = () => {
 
     let history = useHistory()
 
-    // handlers for search input changes
     const handleSearchChange = (event) => {
         setSearchCol(event.target.value)
     }
@@ -36,13 +35,15 @@ const Header = () => {
                     <IconButton onClick={handleHomeClick}>
                         <HomeIcon fontSize='large' color='secondary'/>
                     </IconButton>
-                    <TextField id="outlined" label="Search for Collection Address" variant="outlined"
-                        size='small'
-                        sx={{ width: '80%'}}
-                        value={searchCol}
-                        onChange={handleSearchChange}
-                        onKeyPress={submitSearch}
-                    />
+                    <Tooltip title='Use Contract Address that starts with 0x' arrow placement='bottom'>
+                        <TextField id="outlined" label="Search for Collection Address" variant="outlined"
+                            size='small'
+                            sx={{ width: '80%'}}
+                            value={searchCol}
+                            onChange={handleSearchChange}
+                            onKeyPress={submitSearch}
+                        />
+                    </Tooltip>
                 </Box>
                 <IconButton>
                     <MenuIcon fontSize='large' color='secondary'/>

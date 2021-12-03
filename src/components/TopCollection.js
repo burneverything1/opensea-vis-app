@@ -37,23 +37,25 @@ const TopCollection = () => {
 
     return (
         <TableContainer sx={{ maxHeight: 600 }}>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Collection Name</TableCell>
-                        <TableCell>Rank</TableCell>
-                        <Tooltip title='Average Price over last 7 days' arrow placement='top-start'>
-                            <TableCell>Avg Price</TableCell>
-                        </Tooltip>
-                        <Tooltip title='Average Volume over last 7 days' arrow placement='top-start'>
-                            <TableCell>Daily Volume</TableCell>
-                        </Tooltip>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {topCollections ? createRows(topCollections) : null }
-                </TableBody>
-            </Table>
+            <Tooltip title='Use Scroll to see more' arrow placement='right-start'>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Collection Name</TableCell>
+                            <TableCell>Rank</TableCell>
+                            <Tooltip title='Average Price over last 7 days' arrow placement='top-start'>
+                                <TableCell>Avg Price</TableCell>
+                            </Tooltip>
+                            <Tooltip title='Average Volume over last 7 days' arrow placement='top-start'>
+                                <TableCell>Daily Volume</TableCell>
+                            </Tooltip>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {topCollections ? createRows(topCollections) : null }
+                    </TableBody>
+                </Table>
+            </Tooltip>
         </TableContainer>
     )
 }
